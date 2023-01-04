@@ -1,2 +1,2 @@
-/static_dev/scss/bootstrap/vendor
-/static_dev/scss/bootstrap/mixins
+/static_dev/scss/bootstrap/vendor/*
+/static_dev/scss/bootstrap/mixins/*
