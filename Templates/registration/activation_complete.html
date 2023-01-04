@@ -1,0 +1,28 @@
+{% extends "../base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Account Activated" %}{% endblock %}
+
+{% block container %}
+<div class="container text-center my-5">
+    <a href="{% url 'index' %}">
+        <img class="mb-4" src="../../../media/logo_white.png" alt="" width="72" height="57">
+    </a>
+    <h1 class="h3 mb-3 fw-normal text-white">Congratulations!</h1>
+    <p class="text-white ">
+        {% trans "Your account is now activated." %}
+        {% if not user.is_authenticated %}
+        {% trans "You can log in." %}
+        {% endif %}
+    </p>
+</div>
+{% endblock %}
+
+
+{% comment %}
+**registration/activation_complete.html**
+
+Used after successful account activation. This template has no context
+variables of its own, and should simply inform the user that their
+account is now active.
+{% endcomment %}

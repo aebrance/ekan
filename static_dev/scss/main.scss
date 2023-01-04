@@ -1,0 +1,22 @@
+@import "bootstrap/bootstrap.scss";
+@import "variables";
+
+@mixin bg-properties {
+    background-position: center top;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    // min-width: 100vw;
+    background-image: url($path_bg_img_secondary);
+}
+
+body {
+    @include bg-properties();
+}
+
+@media screen and (min-width: 978px) {
+    body {
+        background-image: url($path_bg_img);
+    }
+}

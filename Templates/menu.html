@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-brand " href="{% url 'index' %}">
+            <img src="../media/logo_white.png" alt="" width="45" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item text-white">
+                    <a class="nav-link {%if request.path == '/'%} active aria-current='page' {% endif %}"
+                        href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link  {%if request.path == '/shop/'%} active {% endif %}"
+                        href="{% url 'shop' %}">Shop</a>
+                </li>
+                <li class="nav-item text-white">
+                    <a class="nav-link {%if request.path == '/contact/'%} active {% endif %}"
+                        href="{% url 'contact' %}">Contact</a>
+                </li>
+                <!-- <li class="nav-item text-white">
+                    <a class="nav-link ">About</a>
+                </li> -->
+                <!-- DEBE LINKEAR A LA PÁGINA DE LOGIN -->
+                <li class="nav-item text-white">
+                    <a class="nav-link fs-4" href="#"><i class='bx bx-user'></i></a>
+                </li>
+                <!-- DEBE LINKEAR A LA PÁGINA DEL CARRITO -->
+                <li class="nav-item text-white">
+                    <a class="nav-link fs-4" href="#"><i class='bx bx-shopping-bag'></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
