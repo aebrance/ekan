@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # apps de terceros
     # apps propias
     "app_shop.apps.AppShopConfig",
+    "app_contact.apps.AppContactConfig",
 ]
 
 MIDDLEWARE = [
