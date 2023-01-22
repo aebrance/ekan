@@ -18,11 +18,9 @@ from django.urls import path
 
 # importaciones desde el views
 from app_shop.views import index
-from app_shop.views import contact
 from app_shop.views import shop
 
 urlpatterns = [
     path("", index, name="index"),
-    path("contact/", contact, name="contact"),
     path("shop/", shop, name="shop"),
 ]

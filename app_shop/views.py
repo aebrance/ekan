@@ -8,10 +8,6 @@ def index(request):
     return render(request, "app_shop/index.html")
 
 
-def contact(request):
-    return render(request, "app_shop/contact.html")
-
-
 def shop(request):
     prods = Productos.objects.all()
     info_prods = {"products": prods}
