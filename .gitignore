@@ -1,4 +1,5 @@
 static_dev/scss/bootstrap/vendor/*
 static_dev/scss/bootstrap/mixins/*
-__pychache__
+__pycache__
 media
+requirements.txt
