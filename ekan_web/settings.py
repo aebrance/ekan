@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # apps de terceros
+    "captcha",
     # apps propias
     "app_shop.apps.AppShopConfig",
     "app_contact.apps.AppContactConfig",
@@ -138,6 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = "index"
 LOGIN_URL = "django.contrib.auth.views.login"
+
 
 ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window
 REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.

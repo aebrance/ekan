@@ -1,17 +1,30 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+<!-- BLOQUE DE ESTILOS -->
+{% block styles %}
+{% endblock %}
+
+<!-- BLOQUE DENTRO DEL HEADER -->
 {% block container_h %}
-<img class="position-relative" src="../media/brand_name.svg" width="100%" height="20%" alt="brand logo image">
+<img class="position-relative" src="../media/brand_name.svg" width="100%" height="20%" alt="brand iso image">
+<!-- INCLUSIÓN DEL MENÚ -->
 {% include "menu.html" %}
 {% endblock %}
 
-
+<!-- BLOQUE DENTRO DEL MAIN -->
 {% block container %}
+<!-- BLOQUE DE CONTENIDO -->
 {% block content %}
 {% endblock %}
 {% endblock %}
 
+<!-- BLOQUE DENTRO DEL FOOTER -->
 {% block container_f %}
-    {% include "footer.html" %}
+<!-- INCLUSIÓN DEL FOOTER -->
+{% include "footer.html" %}
+{% endblock %}
+
+<!-- BLOQUE PARA SCRIPTS -->
+{% block script %}
 {% endblock %}

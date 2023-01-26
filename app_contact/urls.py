@@ -18,7 +18,12 @@ from django.urls import path
 
 # importaciones desde el views
 from app_contact.views import contact
+from app_contact.views import Contacto
+from app_contact.views import SuccessfullContact
 
 urlpatterns = [
-    path("", contact, name="contact"),
+    path("", Contacto.as_view(), name="contact"),
+    path(
+        "successfull_contact/", SuccessfullContact.as_view(), name="successfull_contact"
+    ),
 ]

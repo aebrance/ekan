@@ -25,7 +25,9 @@ urlpatterns = [
     path("accounts/", include("registration.backends.default.urls")),
     path("", include(app_shop.urls)),
     path("contact/", include(app_contact.urls)),
+    path("captcha/", include("captcha.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 if settings.DEBUG:
     import debug_toolbar

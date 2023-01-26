@@ -25,7 +25,7 @@
                 </svg>
             </div>
             <div class="col d-flex">
-                <form class="form-floating d-flex flex-column justify-content-around"> {% csrf_token %}
+                <!-- <form class="form-floating d-flex flex-column justify-content-around"> {% csrf_token %}
                     <div class="row">
                         <div class="row g-2">
                             <h2 class="text-warning">Contact us</h2>
@@ -61,7 +61,20 @@
                             </div>
                         </div>
                     </div>
+                </form> -->
+                <form id="contact" action="" method="post" class="col-xs-12" style="color: white;">{% csrf_token %}
+                    <div class="col-12 form-group">
+                        {{form }}
+                    </div>
+                    <div class="row g-2 pt-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input class="btn btn-outline-warning" type="submit" value="Send">
+                            </div>
+                        </div>
+                    </div>
                 </form>
+
             </div>
         </div>
     </div>
