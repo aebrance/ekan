@@ -3,3 +3,4 @@ static_dev/scss/bootstrap/mixins/*
 __pycache__
 media
 requirements.txt
+__init__.py
