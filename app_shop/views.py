@@ -1,21 +1,54 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 from app_shop.models import Productos
 from app_shop.forms import LoadForm
 from django.shortcuts import redirect
 from django.http import Http404
 from django.views.generic import View
-
-# Create your views here.
-def index(request):
-    return render(request, "app_shop/index.html")
+from pprint import pprint
 
 
-def shop(request):
-    prods = Productos.objects.all()
-    info_prods = {"products": prods}
-    return render(request, "app_shop/shop.html", info_prods)
+class Shop(View):
+    template = "app_shop/shop.html"
+
+    def get(self, request):
+        prods = Productos.objects.all()
+        params = {"products": prods}
+        return render(request, self.template, params)
+
+    def post(self, request):
+        params = {}
+        # este producto está asociado al botón de name product
+        product = request.POST.get("product")
+        # print(f"Producto (POST): {product}")
+        # pprint(f"Variable de sesión: {request.session}")
+        # print(f"Tipo de variable request: {type(request.session)}")
+        # variable de session
+        order = request.session.get("order")
+        # print(f"Order: {order}")
+        if order:
+            qty = order.get(product)
+            if qty:
+                order[product] = qty + 1
+            else:
+                order[product] = 1
+        else:
+            order = {}
+            order[product] = 1
+
+        request.session["order"] = order
+        # print(f"request.session['order']:{request.session['order']}")
+        return redirect("shop")
+
+
+class Order(View):
+    template = "app_shop/order.html"
+
+    def get(self, request):
+        params = {}
+        return render(request, self.template, params)
+
+    def post(self, request):
+        pass
 
 
 def load_img(request):
@@ -32,7 +65,6 @@ def load_img(request):
             precio_mayor = form.cleaned_data["precio_mayor"]
             imagen = form.cleaned_data["imagen"]
             categoria = form.cleaned_data["categoria"]
-
             new_prod = Productos(
                 articulo=articulo,
                 producto=producto,
@@ -43,9 +75,9 @@ def load_img(request):
                 categoria=categoria,
             )
             new_prod.save()
-            return redirect("shop/")
+
+            return redirect("/shop/")
     else:
-        print("Esta en el GET")
         form = LoadForm()
         params["form"] = form
         return render(request, "app_shop/load-prod.html", params)

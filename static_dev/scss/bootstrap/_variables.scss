@@ -62,7 +62,7 @@ $colors: (
   "black": $black,
   "white": $white,
   "gray": $gray-600,
-  "gray-dark": $gray-800) !default;
+  "gray-dark": $gray-800 _ascending) !default;
 // scss-docs-end colors-map
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
@@ -425,7 +425,8 @@ $grid-breakpoints: (
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints"
 );
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints"
+);
 
 
 // Grid containers

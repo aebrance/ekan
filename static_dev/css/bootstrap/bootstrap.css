@@ -19,7 +19,7 @@
   --bs-black: #000;
   --bs-white: #fff;
   --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
+  --bs-gray-dark: #343a40 _ascending;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
@@ -5000,7 +5000,7 @@ fieldset:disabled .btn {
   opacity: 0;
 }
 
-/* line 13, ../ekan/ekan_web/static_dev/scss/bootstrap/mixins/_backdrop.scss */
+/* line 16, ../ekan/ekan_web/static_dev/scss/bootstrap/mixins/_backdrop.scss */
 .modal-backdrop.show {
   opacity: var(--bs-backdrop-opacity);
 }
@@ -6364,7 +6364,7 @@ fieldset:disabled .btn {
   opacity: 0;
 }
 
-/* line 13, ../ekan/ekan_web/static_dev/scss/bootstrap/mixins/_backdrop.scss */
+/* line 16, ../ekan/ekan_web/static_dev/scss/bootstrap/mixins/_backdrop.scss */
 .offcanvas-backdrop.show {
   opacity: 0.5;
 }

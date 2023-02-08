@@ -20,3 +20,14 @@ body {
         background-image: url($path_bg_img);
     }
 }
+
+.qty-signal {
+    display: inline;
+    border-radius: 5%;
+    background-color: red;
+    padding: .25rem;
+    width: auto;
+    height: auto;
+    color: $dark_bg;
+    font-weight: 900;
+}

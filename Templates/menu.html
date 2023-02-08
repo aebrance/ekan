@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center">
     <div class="container d-flex justify-content-between">
         <a class="navbar-brand " href="{% url 'index' %}">
-            <img src="../media/logo_white.png" alt="" width="45" height="50">
+            <img src="../../media/logo_white.png" alt="" width="45" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,9 +25,8 @@
                     <!-- FALTA AGREGAR LA LÓGICA PARA QUE APAREZCA EL NOMBRE DEL USUARIO -->
                     <a class="nav-link fs-4" href="{% url 'auth_login' %}"><i class='bx bx-user'></i></a>
                 </li>
-                <!-- DEBE LINKEAR A LA PÁGINA DEL CARRITO -->
                 <li class="nav-item text-white">
-                    <a class="nav-link fs-4" href="#"><i class='bx bx-shopping-bag'></i></a>
+                    <a class="nav-link fs-4" href="{% url 'order' %}"><i class='bx bx-shopping-bag'></i></a>
                 </li>
             </ul>
         </div>

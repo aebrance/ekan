@@ -17,15 +17,15 @@ from django.contrib import admin
 from django.urls import path
 
 # importaciones desde el views
-from app_shop.views import index
-from app_shop.views import shop
+from app_shop.views import Shop
+from .views import Order
 from app_shop.views import load_img
 from .views import SeeImgs
 from .views import see_prod
 
 urlpatterns = [
-    path("", index, name="index"),
-    path("shop/", shop, name="shop"),
+    path("", Shop.as_view(), name="shop"),
+    path("order/", Order.as_view(), name="order"),
     path("loadprod/", load_img, name="loadprod"),
     path("seeimg/", SeeImgs.as_view(), name="see"),
     path("<int:prod_id>/see/", see_prod, name="seeprod"),

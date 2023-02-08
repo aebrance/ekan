@@ -1,18 +1,22 @@
 {% extends "layout.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<form id="contact" action="/shop/" method="post" enctype="multipart/form-data" class="col-xs-12" style="color: white;">
-    {%csrf_token %}
-    <div class="col-12 form-group">
-        {{form }}
-    </div>
-    <div class="row g-2 pt-2">
-        <div class="col-md">
-            <div class="form-floating">
-                <input class="btn btn-outline-warning" type="submit" value="Send">
+<div class="container my-4 mx-5 py-5">
+    <form id="load-prod-form" action="" method="post" enctype="multipart/form-data" class="col-xs-12"
+        style="color: white;">
+        {%csrf_token %}
+        <div class="col-12 form-group">
+            {{form|crispy }}
+        </div>
+        <div class="row g-2 pt-2">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input class="btn btn-outline-warning" type="submit" value="Send">
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 {% endblock %}

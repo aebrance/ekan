@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # apps de terceros
     "captcha",
+    "crispy_forms",
+    "crispy_bootstrap5",
     # apps propias
     "app_shop.apps.AppShopConfig",
     "app_contact.apps.AppContactConfig",
+    "app_greet.apps.AppGreetConfig",
+    "app_user.apps.AppUserConfig",
 ]
 
 MIDDLEWARE = [
@@ -164,3 +168,9 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         "INTERCEPT_REDIRECTS": False,
     }
+
+
+# CRISPY SETTINGS
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
