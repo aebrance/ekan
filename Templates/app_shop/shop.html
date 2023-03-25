@@ -2,42 +2,55 @@
 {% load static %}
 {% load app_shop_f %}
 {% block content %}
-<section class="pt-5 pb-2 text-center container">
+<section class="text-center container">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light text-warning">Our products</h1>
+            <h1 class="fw-light">Our products</h1>
             <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
                 etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
             <p>
-                <a href="{% url 'contact' %}" class="btn btn-outline-warning my-2">Contact us</a>
+                <a href="{% url 'contact' %}" class="btn__highcontrast">CONTACT US</a>
+            </p>
+            <p>
+                <a href="{%url 'search' %}" class="btn__highcontrast">Search products</a>
             </p>
         </div>
     </div>
 </section>
 
-<div class="album py-5 bg-transparent">
+<div class="album pt-2 pb-5 bg-transparent">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for prod in products %}
             <div class="col">
                 <div class="card shadow-sm">
                     <img src="{{prod.imagen.url}}" alt="" width="100%" height="50%">
-                    <div class=" card-body">
-                        <p class="card-text">Producto: {{prod.producto}}<br>Stock disponible: {{prod.stock_disponible}}
+                    <div class="card-body">
+                        <p class="card-text">
+                            Producto: {{prod.producto}}
+                            <br>
+                            Stock disponible: {{prod.stock_disponible}}
+                            <br>
+                            Precio (minorista): $ {{prod.precio_menor}}
+                            <br>
+                            Precio (mayorista): $ {{prod.precio_mayor}}
                         </p>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
-                            <form action="/shop/" method="post">{% csrf_token %}
-                                <input hidden type="text" name="product" value="{{prod.id}}">
-                                <input type="submit" class="btn btn-xs btn-outline-dark" value="Add">
-                                {% if request.session.order %}
-                                <div class="qty-signal">
-                                    {{prod|in_order:request.session.order}}
-                                </div>
-                                {% endif %}
-
-                            </form>
-                            <small class="text-muted">$ {{prod.precio_menor}}</small>
+                            <div>
+                                <!-- QTY -->
+                                <input type="submit" hidden class="col-12 get__qty" value="0" />
+                                <!-- ID -->
+                                <input type="submit" hidden class="col-12 get__id" value="ekn_{{prod.id}}" />
+                                <!-- ADD -->
+                                <button type="button" class="btn__highcontrast add_button">Add</button>
+                                <!-- REMOVE -->
+                                <button type="button" class="btn__highcontrast remove_button">Remove</button>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <i class='card__prod bx bx-cart bx-md'></i>
+                                <div class="qty__signal" id="ekn_{{prod.id}}">0</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,4 +59,103 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block script %}
+
+<script type="text/javascript">
+    /*jslint browser: true */
+    /*jslint plusplus: true */
+    /*global FormData: false*/
+    /*global $, jQuery, alert, console*/
+
+    var csrftoken = $.cookie('csrftoken');
+    function csrfSafeMethod(method) {
+        "use strict";
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    function managementItems(productID, qtyProduct, removeItem) {
+        "use strict";
+
+        $.ajax({
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            },
+            url: "/shop/add/",
+            type: "GET",
+            data: { productID: productID, qtyProduct: qtyProduct, removeItem: removeItem },
+            success: function (json) {
+                localStorage.setItem(json[0].id_product.toString(), json[0].qty.toString());
+                // CONSULTAR SOBRE LAS CONSULTAS ASÍNCRONAS Y LA ACTUALIZACIÓN DE DATOS
+                // ACTUALIZA LOS VALORES MOSTRADOS EN EL CARRO DEL ALBUM
+                let toModify = document.getElementById(json[0].id_product.toString());
+                let valueToUseFromLS = localStorage.getItem(json[0].id_product.toString());
+                toModify.textContent = valueToUseFromLS.toString()
+                //location.reload();
+            },
+            error: function (xhr, errmsg, err) {
+                console.log('Error en carga de respuesta');
+            }
+        });
+    }
+
+    $(".add_button").click(function (event) {
+        "use strict";
+        event.preventDefault();
+        let productID = $(this).parent().find('.get__id').val();
+        let qtyProduct = $(this).parent().find('.get__qty').val();
+        let removeItem = false;
+
+        let i;
+        for (i = 0; i < localStorage.length; i++) {
+            let keyForErase = localStorage.key(i);
+            if (!keyForErase.startsWith("ekn_")) {
+                localStorage.removeItem(keyForErase);
+            }
+        }
+
+        for (i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let value = localStorage[key];
+            if (key == productID) {
+                qtyProduct = value;
+            }
+        }
+
+        managementItems(productID, qtyProduct, removeItem);
+
+    })
+
+    $(".remove_button").click(function (event) {
+        "use strict";
+        event.preventDefault();
+        let productID = $(this).parent().find('.get__id').val();
+        let qtyProduct = $(this).parent().find('.get__qty').val();
+        let removeItem = true;
+        let i;
+        for (i = 0; i < localStorage.length; i++) {
+            let keyForErase = localStorage.key(i);
+            if (!keyForErase.startsWith("ekn_")) {
+                localStorage.removeItem(keyForErase);
+            }
+        }
+
+        for (i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let value = localStorage[key];
+            if (key == productID) {
+                qtyProduct = value;
+            }
+        }
+
+        managementItems(productID, qtyProduct, removeItem);
+    })
+</script>
+
+<script>
+    $('#id_querycom').autocomplete({ source: "/shop/" })
+</script>
 {% endblock %}

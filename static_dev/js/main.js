@@ -1,3 +1,4 @@
+// ANIMACIÓN DEL LOGO EN LA PÁGINA CONTACTO
 anime({
     targets: '#ekan_logo g path',
     strokeDashoffset: [anime.setDashoffset, 0],

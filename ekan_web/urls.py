@@ -21,14 +21,15 @@ import app_contact.urls
 import app_greet.urls
 from django.conf.urls.static import static
 import app_user.urls
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("registration.backends.default.urls")),
+    # path("accounts/", include("registration.backends.default.urls")),
     path("captcha/", include("captcha.urls")),
     path("", include(app_greet.urls)),
     path("shop/", include(app_shop.urls)),
     path("contact/", include(app_contact.urls)),
-    path("user/", include(app_user.urls))
+    path("user/", include(app_user.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

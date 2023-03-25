@@ -14,6 +14,8 @@
     <!-- CSS BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- ESTILOS PARA JQUERY -->
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
     <!-- CSS MAIN -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <!-- BLOQUE DEDICADO A LA DEFINICIÓN DE ESTILOS -->
@@ -22,6 +24,7 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+    <div class="loader"></div>
     <noscript>
         <p>Sorry! Something went wrong with JavaScript</p>
         <br>
@@ -55,11 +58,24 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <!-- ANIME.JS SCRIPT -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- JQUERY: USO EN PRODUCCIÓN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQUERY: USO DE COOKIES -->
+    <script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- GSAP -- GREENSOCK -->
+    <script src="{% static 'js/minified/gsap.min.js' %}"></script>
     <!-- MAIN SCRIPT -->
     <script src="{% static 'js/main.js' %}"></script>
     <!-- BLOQUE DEDICADO A LA DEFINICIÓN DE SCRIPT -->
-    {% block script %}
 
+
+    <script>
+        // ANIMACIÓN DEL LOADER AL CARGAR LA PÁGINA
+        $(window).on("load", function () {
+            $(".loader").fadeOut(600);
+        });
+    </script>
+    {% block script %}
     {% endblock %}
 </body>
 

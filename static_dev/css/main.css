@@ -2734,7 +2734,7 @@ textarea.form-control-lg {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 1rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   overflow: hidden;
   text-align: start;
   text-overflow: ellipsis;
@@ -2755,7 +2755,7 @@ textarea.form-control-lg {
 /* line 28, ../ekan/ekan_web/static_dev/scss/bootstrap/forms/_floating-labels.scss */
 .form-floating > .form-control,
 .form-floating > .form-control-plaintext {
-  padding: 1rem 0.75rem;
+  padding: 0.5rem 0.75rem;
 }
 
 /* line 32, ../ekan/ekan_web/static_dev/scss/bootstrap/forms/_floating-labels.scss */
@@ -2768,21 +2768,21 @@ textarea.form-control-lg {
 .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown),
 .form-floating > .form-control-plaintext:focus,
 .form-floating > .form-control-plaintext:not(:placeholder-shown) {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 /* line 42, ../ekan/ekan_web/static_dev/scss/bootstrap/forms/_floating-labels.scss */
 .form-floating > .form-control:-webkit-autofill,
 .form-floating > .form-control-plaintext:-webkit-autofill {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 /* line 48, ../ekan/ekan_web/static_dev/scss/bootstrap/forms/_floating-labels.scss */
 .form-floating > .form-select {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 /* line 57, ../ekan/ekan_web/static_dev/scss/bootstrap/forms/_floating-labels.scss */
@@ -3142,8 +3142,8 @@ textarea.form-control-lg {
 
 /* line 5, ../ekan/ekan_web/static_dev/scss/bootstrap/_buttons.scss */
 .btn {
-  --bs-btn-padding-x: 0.75rem;
-  --bs-btn-padding-y: 0.375rem;
+  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-padding-y: 0.25rem;
   --bs-btn-font-family: ;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
@@ -3689,8 +3689,8 @@ fieldset:disabled .btn {
 
 /* line 75, ../ekan/ekan_web/static_dev/scss/bootstrap/_button-group.scss */
 .dropdown-toggle-split {
-  padding-right: 0.5625rem;
-  padding-left: 0.5625rem;
+  padding-right: 0.375rem;
+  padding-left: 0.375rem;
 }
 
 /* line 79, ../ekan/ekan_web/static_dev/scss/bootstrap/_button-group.scss */
@@ -3908,20 +3908,20 @@ fieldset:disabled .btn {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(0, 0, 0, 0.55);
-  --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
+  --bs-navbar-hover-color: #000;
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
-  --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-active-color: #000;
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
   --bs-navbar-brand-font-size: 1.25rem;
-  --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
-  --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-brand-color: #000;
+  --bs-navbar-brand-hover-color: #000;
   --bs-navbar-nav-link-padding-x: 0.5rem;
   --bs-navbar-toggler-padding-y: 0.25rem;
   --bs-navbar-toggler-padding-x: 0.75rem;
   --bs-navbar-toggler-font-size: 1.25rem;
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-color: #000;
   --bs-navbar-toggler-border-radius: 0.375rem;
   --bs-navbar-toggler-focus-width: 0.25rem;
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
@@ -11816,35 +11816,107 @@ fieldset:disabled .btn {
   }
 }
 
-/* COLORS */
-/* PATHS */
-/* line 14, ../ekan/ekan_web/static_dev/scss/main.scss */
+/* line 9, ../ekan/ekan_web/static_dev/scss/main.scss */
 body {
-  background-position: center top;
-  background-size: cover;
-  background-repeat: repeat;
-  background-attachment: fixed;
+  background-color: #fff;
   min-height: 100vh;
-  background-image: url("../../media/bg_img_secondary.jpg");
+  scroll-behavior: smooth;
 }
 
-@media screen and (min-width: 978px) {
-  /* line 19, ../ekan/ekan_web/static_dev/scss/main.scss */
-  body {
-    background-image: url("../../media/bg_img_primary.jpg");
+/* line 14, ../ekan/ekan_web/static_dev/scss/main.scss */
+.nav__menu {
+  background-color: #000;
+}
+
+/* line 18, ../ekan/ekan_web/static_dev/scss/main.scss */
+.qty__signal {
+  background-color: #E90064;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+  margin: 0px;
+}
+
+/* line 34, ../ekan/ekan_web/static_dev/scss/main.scss */
+.card__prod {
+  align-self: flex-end;
+  z-index: 1;
+}
+
+/* line 39, ../ekan/ekan_web/static_dev/scss/main.scss */
+.btn__highcontrast {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  font-weight: 500;
+  box-shadow: 2px 2px 0px #ff0;
+  margin: 0px 5px;
+}
+
+/* line 51, ../ekan/ekan_web/static_dev/scss/main.scss */
+.btn__highcontrast:hover {
+  color: #ff0;
+}
+
+@media (max-width: 575px) {
+  /* line 56, ../ekan/ekan_web/static_dev/scss/main.scss */
+  .btn__highcontrast {
+    margin: 0% 10% 0% 10%;
+    font-size: small;
+    font-weight: 100;
+    display: inline-block;
+    margin: 0px 3px;
   }
 }
 
-/* line 24, ../ekan/ekan_web/static_dev/scss/main.scss */
-.qty-signal {
-  display: inline;
-  border-radius: 5%;
-  background-color: red;
-  padding: .25rem;
-  width: auto;
-  height: auto;
-  color: #343a40;
-  font-weight: 900;
+/* line 66, ../ekan/ekan_web/static_dev/scss/main.scss */
+.asteriskField {
+  display: none;
+}
+
+/* line 70, ../ekan/ekan_web/static_dev/scss/main.scss */
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../../media/logo_black.PNG") 50% 50% no-repeat #FFFFFF;
+}
+
+/* line 82, ../ekan/ekan_web/static_dev/scss/main.scss */
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background-color: #FFFF00;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media (min-width: 768px) {
+  /* line 94, ../ekan/ekan_web/static_dev/scss/main.scss */
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+
+@media (min-width: 769px) {
+  /* line 100, ../ekan/ekan_web/static_dev/scss/main.scss */
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

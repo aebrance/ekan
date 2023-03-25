@@ -1,17 +1,17 @@
 from django import template
-from pprint import pprint
 
 register = template.Library()
 
 # las funciones son los filtros
+
+
 @register.filter(name="in_order")
 def in_order(product, order):
-    keys = order.keys()
+    keys = list(order.keys())
     for id in keys:
         if int(id) == product.id:
             return order[id]
-        else:
-            return ""
+        id = ""
 
 
 @register.filter(name="make_invoice")

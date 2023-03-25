@@ -14,7 +14,7 @@
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="250pt" height="300pt"
                     viewBox="0 0 416.000000 378.000000" preserveAspectRatio="xMidYMid meet" id="ekan_logo">
 
-                    <g transform="translate(0.000000,378.000000) scale(0.100000,-0.100000)" fill="none" stroke="#FFFFFF"
+                    <g transform="translate(0.000000,378.000000) scale(0.100000,-0.100000)" fill="none" stroke="#000000"
                         stroke-width="20">
                         <path d="M1811 3776 c2 -2 344 -131 759 -286 415 -155 759 -286 763 -290 5 -4
         -15 -623 -43 -1375 -28 -752 -50 -1374 -48 -1381 3 -13 920 3311 918 3329 0 4
@@ -26,14 +26,14 @@
                 </svg>
             </div>
             <div class="col d-flex">
-                <form id="contact" action="" method="post" class="col-xs-12" style="color: white;">{% csrf_token %}
+                <form id="contact" action="" method="post" class="col-xs-12" style="color: black;">{% csrf_token %}
                     <div class="col-12 form-group">
                         {{form|crispy}}
                     </div>
                     <div class="row g-2 pt-2">
                         <div class="col-md">
                             <div class="form-floating">
-                                <input class="btn btn-outline-warning" type="submit" value="Send">
+                                <input class="btn__highcontrast" type="submit" value="Send">
                             </div>
                         </div>
                     </div>

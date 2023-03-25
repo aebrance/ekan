@@ -5,8 +5,8 @@
 
 {% block styles %}
 <style>
-    body {
-        background-image: none;
+    #qty_prod {
+        background-color: #E90064;
     }
 </style>
 {% endblock %}
@@ -14,7 +14,7 @@
 {% block content %}
 <div class="container">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="../../media/logo_black.PNG" alt="" width="72" height="57">
+        <img class="d-block mx-auto mb-4" src="../../media/logo_black.PNG" alt="" width="72" height="80">
         <h2>Checkout form</h2>
         <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form
             group has a validation state that can be triggered by attempting to submit the form without completing
@@ -24,8 +24,8 @@
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-pill">3</span>
+                <span>Your cart</span>
+                <span class="badge rounded-pill" id="qty_prod">3</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between lh-sm">

@@ -22,6 +22,10 @@ from .views import Order
 from app_shop.views import load_img
 from .views import SeeImgs
 from .views import see_prod
+from .views_stock import add
+from .views import search
+from .views import SearchProducts
+from .views import SearchProducts2
 
 urlpatterns = [
     path("", Shop.as_view(), name="shop"),
@@ -29,4 +33,8 @@ urlpatterns = [
     path("loadprod/", load_img, name="loadprod"),
     path("seeimg/", SeeImgs.as_view(), name="see"),
     path("<int:prod_id>/see/", see_prod, name="seeprod"),
+    path("add/", add, name="add"),
+    path("search/", search, name="search"),
+    path("results/", SearchProducts.as_view(), name="results"),
+    path("clothes/", SearchProducts2.as_view(), name="clothes"),
 ]

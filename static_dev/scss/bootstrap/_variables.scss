@@ -425,8 +425,7 @@ $grid-breakpoints: (
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints"
 );
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints"
-);
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 
 // Grid containers
@@ -1007,9 +1006,9 @@ $form-file-button-hover-bg: shade-color($form-file-button-bg, 5%) !default;
 $form-floating-height: add(3.5rem, $input-height-border) !default;
 $form-floating-line-height: 1.25 !default;
 $form-floating-padding-x: $input-padding-x !default;
-$form-floating-padding-y: 1rem !default;
-$form-floating-input-padding-t: 1.625rem !default;
-$form-floating-input-padding-b: .625rem !default;
+$form-floating-padding-y: 0.5rem !default;
+$form-floating-input-padding-t: 1rem !default;
+$form-floating-input-padding-b: .5rem !default;
 $form-floating-label-opacity: .65 !default;
 $form-floating-label-transform: scale(.85) translateY(-.5rem) translateX(.15rem) !default;
 $form-floating-transition: opacity .1s ease-in-out,
@@ -1110,11 +1109,11 @@ $navbar-toggler-focus-width: $btn-focus-width !default;
 $navbar-toggler-transition: box-shadow .15s ease-in-out !default;
 
 $navbar-light-color: rgba($black, .55) !default;
-$navbar-light-hover-color: rgba($black, .7) !default;
-$navbar-light-active-color: rgba($black, .9) !default;
+$navbar-light-hover-color: $black !default;
+$navbar-light-active-color: $black !default;
 $navbar-light-disabled-color: rgba($black, .3) !default;
-$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
-$navbar-light-toggler-border-color: rgba($black, .1) !default;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#000000' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-light-toggler-border-color: $black !default;
 $navbar-light-brand-color: $navbar-light-active-color !default;
 $navbar-light-brand-hover-color: $navbar-light-active-color !default;
 // scss-docs-end navbar-variables
@@ -1645,3 +1644,13 @@ $kbd-bg: var(--#{$prefix}body-color) !default;
 $nested-kbd-font-weight: null !default; // Deprecated in v5.2.0, removing in v6
 
 $pre-color: null !default;
+
+
+// VARIABLES CREADAS PARA LOS BOTONES
+$btn-bg-color: $black;
+$btn-font-color: $white;
+$btn-font-color-hover: #ff0;
+$btn-padding-y: .25rem;
+$btn-padding-x: .5rem;
+$btn-margin-x: 5px;
+$btn-margin-y: 2px;

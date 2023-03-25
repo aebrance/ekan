@@ -13,7 +13,6 @@ class ConsultaForm(ModelForm):
             "name",
             "descripcion",
             "mail",
-            "telefono",
         ]
 
     def send_email(self):

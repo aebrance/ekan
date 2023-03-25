@@ -1,6 +1,20 @@
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-<form action="" method="post">{% csrf_token %}
-    {{form|crispy}}
-    <input type="submit" value="Register">
-</form>
+{% block container %}
+<div class="container p-5 w-100 h-75">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-6">
+            <form class="" action="" method="post">{% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" class="btn__highcontrast" value="Register">
+            </form>
+        </div>
+        <div class="col-6 text-center">
+            <a href="{% url 'index' %}">
+                <img src="../../media/logo_black.PNG" style="width: 80%;" alt="logo">
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
